@@ -1,7 +1,7 @@
-## Calculator - Challenge 3 - Ana & Mari
+#Challenge 4 - Ana & Mari
 
-is_calculator_on = True
-while is_calculator_on:
+
+def operation():
    result = None
    is_denominator_zero = False
    not_a_number = False
@@ -32,9 +32,37 @@ while is_calculator_on:
    elif result == None:
       print ('Invalid option!')
    else:
+      operation_string = f'{n1} {operator} {n2} = {result}'
       print(f'You chose \'{operator}\'')
-      print(f'{n1} {operator} {n2} = {result}')
-   answer = input('Do you want to make another operation? (Y/N)\n').lower()
+      print(operation_string)
+      history.append(operation_string)
+      
+      
+is_calculator_on = True
+history = []
+
+
+while is_calculator_on:
+   option = input('Show Full History (\'h\'), Show History Entry (\'e\') or Make Operation (\'o\')\n').lower()
+   while option != 'h' and option != 'e'and option != 'o':
+      option = input('Show Full History (\'h\'), Show History Entry (\'e\') or Make Operation (\'o\')\n').lower()
+   if option == 'o':
+      operation()
+   elif (option == 'e' or option == 'h') and len(history) == 0:
+      print('No history to show!')
+   elif option == 'e':
+      try:
+         entry = int(input(f'Insert history entry ID from 0 to {len(history) - 1}:'))
+         if entry >= 0 and entry < len(history):
+            print(f'[{entry}]: {history[entry]}')
+         else: 
+            print('Out of range!')
+      except:
+         print('It\'s not a number!')
+   else:
+      for i in range(0, len(history)):
+         print(f'[{i}]: {history[i]}')
+   answer = input('Do you want to go back to menu? (Y/N)\n').lower()
    while answer != 'y' and answer != 'n':
-      answer = input('Do you want to make another operation? (Y/N)\n').lower()
+      answer = input('Do you want to go back to menu? (Y/N)\n').lower()
    is_calculator_on = answer == 'y'
