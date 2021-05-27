@@ -1,53 +1,84 @@
 # team 1: Ana & Mari
 
+def operation():
+    result = None
+    is_denominator_zero = False
+    not_a_number = False
+
+    try:
+        n1 = float(input('First number:'))
+        n2 = float(input('Second number:'))
+        operator = input('''\nChoose the type of operation you want:
+            '+' Sum
+            '-' Subtraction
+            '*' Multiplication
+            '/' Division\n''')
+
+        if operator == '+':
+            result = n1 + n2
+
+        elif operator == '-':
+            result = n1 - n2
+
+        elif operator == '*':
+            result = n1 * n2
+        
+        elif operator == '/' and n2 == 0:
+            is_denominator_zero = True
+
+        elif operator == '/':
+            result = n1 / n2
+    
+    except:
+        not_a_number = True
+
+    if is_denominator_zero:
+        print ('Can\'t divide by zero! Try again')
+
+    elif not_a_number:
+        print ('It\'s not a number!')
+    
+    elif result == None:
+        print ('Invalid option!')
+    
+    else:
+        operation_string = f'{n1} {operator} {n2} = {result}'
+        print(f'You chose \'{operator}\'')
+        print(operation_string)
+        history.append(operation_string)
+
 is_calculator_on = True
+history = []
 while is_calculator_on:
-   result = None
-   is_denominator_zero = False
-   not_a_number = False
-   
-   try:
-      n1 = float(input('First number:'))
-      n2 = float(input('Second number:'))
-      operator = input('''\nChoose the type of operation you want:
-         '+' Sum
-         '-' Subtraction
-         '*' Multiplication
-         '/' Division\n''')
+    option = input('Show Full History (\'h\'), Show History Entry (\'e\') or Make Operation (\'o\')\n').lower()
+    while option != 'h' and option != 'e'and option != 'o':
+        option = input('Show Full History (\'h\'), Show History Entry (\'e\') or Make Operation (\'o\')\n').lower()
 
-      if operator == '+':
-         result = n1 + n2
+    if option == 'o':
+        operation()
 
-      elif operator == '-':
-         result = n1 - n2
+    elif (option == 'e' or option == 'h') and len(history) == 0:
+        print('No history to show!')
+    
+    elif option == 'e':
+        try:
+            entry = int(input(f'Insert history entry ID from 0 to {len(history) - 1}:'))
 
-      elif operator == '*':
-         result = n1 * n2
-      
-      elif operator == '/' and n2 == 0:
-         is_denominator_zero = True
+            if entry >= 0 and entry < len(history):
+                print(f'[{entry}]: {history[entry]}')
 
-      elif operator == '/':
-         result = n1 / n2
-   
-   except:
-      not_a_number = True
+            else: 
+                print('Out of range!')
+        
+        except:
+            print('It\'s not a number!')
 
-   if is_denominator_zero:
-      print ('Can\'t divide by zero! Try again')
+    else:
+        for i in range(0, len(history)):
+            print(f'[{i}]: {history[i]}')
+        
+    answer = input('Do you want to go back to menu? (Y/N)\n').lower()
+    while answer != 'y' and answer != 'n':
+        answer = input('Do you want to go back to menu? (Y/N)\n').lower()
 
-   elif not_a_number:
-      print ('It\'s not a number!')
-   
-   elif result == None:
-      print ('Invalid option!')
-   
-   else:
-      print(f'You chose \'{operator}\'')
-      print(f'{n1} {operator} {n2} = {result}')
-      
-   answer = input('Do you want to make another operation? (Y/N)\n').lower()
-   while answer != 'y' and answer != 'n':
-      answer = input('Do you want to make another operation? (Y/N)\n').lower()
-
-   is_calculator_on = answer == 'y'
+    is_calculator_on = answer == 'y'
