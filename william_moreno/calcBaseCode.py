@@ -1,83 +1,122 @@
 import os
 
-calHistory = []
+
+cal_history = []
 option = None
+
 
 def clear():
     os.environ["TERM"] = "linux"
     os.system("clear")
 
 
+def is_float(a):
+    try:
+        float(a)
+        return True
+    except ValueError:
+        return False
+
+
+def is_int(a):
+    try:
+        int(a)
+        return True
+    except ValueError:
+        return False
+
+
 def sum_calc(a, b):
     print(f"O resultado da soma é {a + b}\n")
-    opResult = [a, "+", b, "=", (a + b)]
-    history(opResult)
+    op_result = [a, "+", b, "=", (a + b)]
+    history(op_result)
 
 
 def subtraction_calc(a, b):
     print(f"O resultado da subtração é {a - b}\n")
-    opResult = [a, "-", b, "=", (a - b)]
-    history(opResult)
+    op_result = [a, "-", b, "=", (a - b)]
+    history(op_result)
+
 
 def multiplication_calc(a, b):
     print(f"O resultado da multiplicação é {a * b}\n")
-    opResult = [a, "*", b, "=", (a * b)]
-    history(opResult)
+    op_result = [a, "*", b, "=", (a * b)]
+    history(op_result)
+
 
 def division_calc(a, b):
     print(f"O resultado da divisão é {a / b}\n")
-    opResult = [a, "/", b, "=", (a / b)]
-    history(opResult)
-
-def history(opResult):
-    calHistory.append(opResult)
+    op_result = [a, "/", b, "=", (a / b)]
+    history(op_result)
 
 
-def chooseOperation(chooseOption, a, b):
-    if chooseOption == 'a' or chooseOption == 'soma' or chooseOption == '1':
+def history(op_result):
+    cal_history.append(op_result)
+
+
+def chooseOperation(choose_option, a, b):
+    if choose_option == 'a' or choose_option == 'soma' or choose_option == '1':
         sum_calc(a, b)
-    elif chooseOption == 'b' or chooseOption == 'subtração' or chooseOption == '2':
+    elif choose_option == 'b' or choose_option == 'subtração' or choose_option == '2':
         subtraction_calc(a, b)
-    elif chooseOption == 'c' or chooseOption == 'multiplicação' or chooseOption == '3':
+    elif choose_option == 'c' or choose_option == 'multiplicação' or choose_option == '3':
         multiplication_calc(a, b)
-    elif chooseOption == 'd' or chooseOption == 'divisão' or chooseOption == '4':
+    elif choose_option == 'd' or choose_option == 'divisão' or choose_option == '4':
         division_calc(a, b)
 
-def chooseOperationIsValid(chooseOption):
-    if chooseOption == 'a' or chooseOption == 'soma' or chooseOption == '1':
+
+def chooseOperationIsValid(choose_option):
+    if choose_option == 'a' or choose_option == 'soma' or choose_option == '1':
         return True
-    elif chooseOption == 'b' or chooseOption == 'subtração' or chooseOption == '2':
+    elif choose_option == 'b' or choose_option == 'subtração' or choose_option == '2':
         return True
-    elif chooseOption == 'c' or chooseOption == 'multiplicação' or chooseOption == '3':
+    elif choose_option == 'c' or choose_option == 'multiplicação' or choose_option == '3':
         return True
-    elif chooseOption == 'd' or chooseOption == 'divisão' or chooseOption == '4':
+    elif choose_option == 'd' or choose_option == 'divisão' or choose_option == '4':
         return True
-    elif chooseOption == 'e' or chooseOption == 'consultar' or chooseOption == 'historico' or chooseOption == '5':
+    elif choose_option == 'e' or choose_option == 'consultar' or choose_option == 'historico' or choose_option == '5':
         return True
     else:
         return False
 
 
-
-def inputValue(msg,operation, inputNumber):
+def inputValue(msg, choosed_operation, input_number):
     while True:
         value = input(msg)
-        if value.isnumeric():
-            if (operation == 'd' or operation == 'divisão' or operation == '4') and (inputNumber == 2):
-                value = float(value)
+
+        if (choosed_operation == 'd' or choosed_operation == 'divisão' or choosed_operation == '4') \
+                and (input_number == 2):
+            if is_int(value):
+                value = int(value)
                 if value == 0:
                     print("\033[0;31mNão é possível realizar uma divisão por zero, digite outro valor\033[m")
                 else:
-                    break
-            else:
+                    return value
+            elif is_float(value):
                 value = float(value)
-                break
+                if value == 0.0:
+                    print("\033[0;31mNão é possível realizar uma divisão por zero, digite outro valor\033[m")
+                else:
+                    return value
+
+            else:
+                print("\033[0;31mO valor digitado não é um valor válido, digite novamente!\033[m")
+
         else:
-            print("\033[0;31mO valor digitado não é um valor válido, digite novamente!\033[m")
-    return value
+
+            if is_int(value):
+                value = int(value)
+                return value
+
+            elif is_float(value):
+                value = float(value)
+                return value
+
+            else:
+                print("\033[0;31mO valor digitado não é um valor válido, digite novamente!\033[m")
 
 
-def leiaStr (msg):
+def leiaStr(msg):
 
     while True:
         value = input(msg)
@@ -109,44 +148,44 @@ while option != '2':
         print("\nDeseja verificar o histórico total ou parcial?")
         print("\n1. Histórico total")
         print("2. Histórico parcial\n")
-        operationHistory = input("Por favor, digite a opção desejada: ")
+        operation_history = input("Por favor, digite a opção desejada: ")
 
-        if operationHistory == '1' or operationHistory == 'total':
+        if operation_history == '1' or operation_history == 'total':
             count = 1
-            if len(calHistory) <= 0:
+            if len(cal_history) <= 0:
                 print("\n\033[0;31mVocê ainda não possui histórico de operações \033[m")
             else:
-                for i in calHistory:
+                for i in cal_history:
                     print(f"Operação #{count}: {i[0]} {i[1]} {i[2]} {i[3]} {i[4]}")
                     count += 1
-        elif operationHistory == '2' or operationHistory == 'parcial':
+        elif operation_history == '2' or operation_history == 'parcial':
             count = 1
-            if len(calHistory) <= 0:
+            if len(cal_history) <= 0:
                 print("\n\033[0;31mVocê ainda não possui histórico de operações \033[m")
             else:
                 print("\nVeja abaixo as posições disponíveis no histórico: ")
-                for i in calHistory:
+                for i in cal_history:
                     print(f"Operação #{count}")
                     count += 1
 
-                operationHistoryParcial = input("\nPor favor, digite qual posição deseja consultar: ")
+                operation_history_parcial = input("\nPor favor, digite qual posição deseja consultar: ")
 
                 while True:
-                    if int(operationHistoryParcial) <= 0 or int(operationHistoryParcial) > (count - 1):
-                        print("\n\033[0;31mEssa posição não existe no nosso histórico. Por favor verifique as opções válidas a seguir. \033[m")
+                    if int(operation_history_parcial) <= 0 or int(operation_history_parcial) > (count - 1):
+                        print("\n\033[0;31mEssa posição não existe no nosso histórico. "
+                              "Por favor verifique as opções válidas a seguir. \033[m")
                         count2 = 1
-                        for i in calHistory:
+                        for i in cal_history:
                             print(f"Operação #{count2}")
                             count2 += 1
-                        operationHistoryParcial = input("\nPor favor, digite qual posição deseja consultar: ")
+                        operation_history_parcial = input("\nPor favor, digite qual posição deseja consultar: ")
                     else:
                         count3 = 1
-                        for i in calHistory:
-                            if count3 == int(operationHistoryParcial):
+                        for i in cal_history:
+                            if count3 == int(operation_history_parcial):
                                 print(f"Operação #{count3}: {i[0]} {i[1]} {i[2]} {i[3]} {i[4]}")
                             count3 += 1
                         break
-
 
     print("\nO que deseja fazer agora?")
     print("1- Fazer outra operação \n2- Encerrar o programa\n")
