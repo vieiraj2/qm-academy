@@ -1,7 +1,9 @@
 import itertools
+from calculator_concat_sum import CalculatorConcatSum
 
 for g in itertools.count(start=0, step=1):
 
+    #initial banner
     def initial_banner():
         print("\033[2m" + "\033[96m" + '\n' + "-" * 62 + '\n' + '\n' + '#' * 62 + '\n' + '#' * 25 +
               ' CALCULATOR ' + '#' * 25 + '\n' + '#' * 62
@@ -102,20 +104,23 @@ for g in itertools.count(start=0, step=1):
             print("\033[1m" + "\033[31m" + "ERROR! Digit a valid 2nd number!")
     line2()
 
+    # operations
+    calculator = CalculatorConcatSum(a, b)
+
     if op == "+":
-        result = a + b
+        result = calculator.addition()
         result_list.append('Calc {}: '.format(g+1) + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
-        print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
+        #print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
     elif op == "-":
-        result = a - b
+        result = calculator.sub()
         result_list.append('Calc ' + str(g+1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
         print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
     elif op == "*":
-        result = a * b
+        result = calculator.multiply()
         result_list.append('Calc ' + str(g+1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
         print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
     elif op == "/":
-        result = a / b
+        result = calculator.divide()
         result_list.append('Calc ' + str(g+1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
         print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
 
