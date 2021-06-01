@@ -10,7 +10,5 @@ class CalculatorConcatSum(Calculator):
         self.oper1 = oper1
         self.oper2 = oper2
     def soma(self):
-        #print('ENTROU NA CALCULATOR CONCAT SUM !!!')
         resultado = str(self.oper1) + str(self.oper2)
-        #print('EXIBINDO CONCAT: ', str(self.oper1) + str(self.oper2))
         return (resultado)

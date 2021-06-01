@@ -91,7 +91,8 @@ def main():
             # Constrói uma instância do objeto "Calculator", com os parâmetros inputados pelo usuário
             ObjCalc = CalculatorConcatSum(oper1, oper2)
 
-            # Executa o método "soma", tendo como entrada os valores inputados pelo usuário, e utilizados no instanciamento do objeto
+            # Executa o método "soma", tendo como entrada os valores inputados pelo usuário, e utilizados no
+            # instanciamento do objeto
             resultado = ObjCalc.soma()
 
             # Imprime o resultado da operação
@@ -113,9 +114,10 @@ def main():
                 continue
 
             # Constrói uma instância do objeto "Calculator", com os parâmetros inputados pelo usuário
-            ObjCalc = Calculator(oper1, oper2)
+            ObjCalc = CalculatorConcatSum(oper1, oper2)
 
-            # Executa o método "subtrai", tendo como entrada os valores inputados pelo usuário, e utilizados no instanciamento do objeto
+            # Executa o método "subtrai", tendo como entrada os valores inputados pelo usuário, e utilizados no
+            # instanciamento do objeto
             resultado = ObjCalc.subtrai()
 
             # Imprime o resultado da operação
@@ -137,9 +139,10 @@ def main():
                 continue
 
             # Constrói uma instância do objeto "Calculator", com os parâmetros inputados pelo usuário
-            ObjCalc = Calculator(oper1, oper2)
+            ObjCalc = CalculatorConcatSum(oper1, oper2)
 
-            # Executa o método "multiplica", tendo como entrada os valores inputados pelo usuário, e utilizados no instanciamento do objeto
+            # Executa o método "multiplica", tendo como entrada os valores inputados pelo usuário, e utilizados no
+            # instanciamento do objeto
             resultado = ObjCalc.multiplica()
 
             # Imprime o resultado da operação
@@ -161,9 +164,10 @@ def main():
                 continue
 
             # Constrói uma instância do objeto "Calculator", com os parâmetros inputados pelo usuário
-            ObjCalc = Calculator(oper1, oper2)
+            ObjCalc = CalculatorConcatSum(oper1, oper2)
 
-            # Executa o método "divide", tendo como entrada os valores inputados pelo usuário, e utilizados no instanciamento do objeto
+            # Executa o método "divide", tendo como entrada os valores inputados pelo usuário, e utilizados no
+            # instanciamento do objeto
             resultado = ObjCalc.divide()
 
             if resultado != None:
