@@ -27,4 +27,3 @@ class Calculator:
         except ZeroDivisionError:
             print("\033[0;31mNão é possível realizar uma divisão por zero\033[m")
             return False
-
