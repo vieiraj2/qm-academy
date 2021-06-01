@@ -10,8 +10,9 @@ def clear():
     os.system("clear")
 
 
-def history(opResult):
-    calHistory.append(opResult)
+def history(op_result):
+    calHistory.append(op_result)
+
 
 def isFloat(a):
     try:
@@ -20,32 +21,34 @@ def isFloat(a):
     except ValueError:
         return False
 
-def chooseOperation(chooseOption, a, b):
-    calculator = CalculatorConcatSum(a, b)
-    if chooseOption == 'a' or chooseOption == 'soma' or chooseOption == '1':
-        opResult = calculator.sum()
-        history(opResult)
-    elif chooseOption == 'b' or chooseOption == 'subtração' or chooseOption == '2':
-        opResult = calculator.sub()
-        history(opResult)
-    elif chooseOption == 'c' or chooseOption == 'multiplicação' or chooseOption == '3':
-        opResult = calculator.mult()
-        history(opResult)
-    elif chooseOption == 'd' or chooseOption == 'divisão' or chooseOption == '4':
-        opResult = calculator.div()
-        if opResult:
-            history(opResult)
 
-def chooseOperationIsValid(chooseOption):
-    if chooseOption == 'a' or chooseOption == 'soma' or chooseOption == '1':
+def chooseOperation(choose_option, a, b):
+    calculator = CalculatorConcatSum(a, b)
+    if choose_option == 'a' or choose_option == 'soma' or choose_option == '1':
+        op_result = calculator.sum()
+        history(op_result)
+    elif choose_option == 'b' or choose_option == 'subtração' or choose_option == '2':
+        op_result = calculator.sub()
+        history(op_result)
+    elif choose_option == 'c' or choose_option == 'multiplicação' or choose_option == '3':
+        op_result = calculator.mult()
+        history(op_result)
+    elif choose_option == 'd' or choose_option == 'divisão' or choose_option == '4':
+        op_result = calculator.div()
+        if op_result:
+            history(op_result)
+
+
+def chooseOperationIsValid(choose_option):
+    if choose_option == 'a' or choose_option == 'soma' or choose_option == '1':
         return True
-    elif chooseOption == 'b' or chooseOption == 'subtração' or chooseOption == '2':
+    elif choose_option == 'b' or choose_option == 'subtração' or choose_option == '2':
         return True
-    elif chooseOption == 'c' or chooseOption == 'multiplicação' or chooseOption == '3':
+    elif choose_option == 'c' or choose_option == 'multiplicação' or choose_option == '3':
         return True
-    elif chooseOption == 'd' or chooseOption == 'divisão' or chooseOption == '4':
+    elif choose_option == 'd' or choose_option == 'divisão' or choose_option == '4':
         return True
-    elif chooseOption == 'e' or chooseOption == 'consultar' or chooseOption == 'historico' or chooseOption == '5':
+    elif choose_option == 'e' or choose_option == 'consultar' or choose_option == 'historico' or choose_option == '5':
         return True
     else:
         return False
@@ -65,7 +68,7 @@ def inputValue(msg):
     return value
 
 
-def leiaStr (msg):
+def leiaStr(msg):
     while True:
         value = input(msg)
         if len(value) == 0:
@@ -120,7 +123,8 @@ while option != '2':
 
                 while True:
                     if int(operationHistoryParcial) <= 0 or int(operationHistoryParcial) > (count - 1):
-                        print("\n\033[0;31mEssa posição não existe no nosso histórico. Por favor verifique as opções válidas a seguir. \033[m")
+                        print("\n\033[0;31mEssa posição não existe no nosso histórico." +
+                              "Por favor verifique as opções válidas a seguir. \033[m")
                         count2 = 1
                         for i in calHistory:
                             print(f"Operação #{count2}")
@@ -133,7 +137,6 @@ while option != '2':
                                 print(f"Operação #{count3}: {i[0]} {i[1]} {i[2]} {i[3]} {i[4]}")
                             count3 += 1
                         break
-
 
     print("\nO que deseja fazer agora?")
     print("1- Fazer outra operação \n2- Encerrar o programa\n")

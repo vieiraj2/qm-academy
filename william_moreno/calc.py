@@ -3,15 +3,13 @@ from tkinter import *
 from tkinter import messagebox
 
 
-def inputValue(valueA):
-
-    if valueA.isnumeric():
-        valueA = float(valueA)
-
+def inputValue(value_a):
+    if value_a.isnumeric():
+        value_a = float(value_a)
     else:
-        valueA = False
+        value_a = False
 
-    return valueA
+    return value_a
 
 
 def sum_calc():
@@ -75,71 +73,60 @@ root = Tk()
 root.geometry("500x350")
 root.title("Calculator")
 
-
-#Top label
+# Top label
 labelFrame = LabelFrame(root, text="\nPlease, choose the desired option")
 labelFrame.pack(fill="both", expand="yes")
 labelFrame.place(x=50, y=1, height=40, width=400)
-
 
 # First entry
 entry1Label = Label(root, text="First value")
 entry1Label.pack(side=LEFT)
 entry1Label.place(x=100, y=40, height=40, width=400)
-entry1Field = Entry(root, bd=5, bg = "light gray", fg = "black")
+entry1Field = Entry(root, bd=5, bg="light gray", fg="black")
 entry1Field.pack(side=RIGHT)
 entry1Field.place(x=250, y=70, height=40, width=100)
 valueA = inputValue(entry1Field.get())
-
 
 # Second entry
 entry2Label = Label(root, text="Second value")
 entry2Label.pack(side=LEFT)
 entry2Label.place(x=100, y=100, height=40, width=400)
-entry2Field = Entry(root, bd=5, bg = "light gray", fg = "black")
+entry2Field = Entry(root, bd=5, bg="light gray", fg="black")
 entry2Field.pack(side=RIGHT)
 entry2Field.place(x=250, y=130, height=40, width=100)
-
 
 # Total field
 total = Label(root, text="Total")
 total.pack(side=LEFT)
 total.place(x=100, y=160, height=40, width=400)
-text = Text(root, bd = 5, bg = "light gray", fg = "black")
+text = Text(root, bd=5, bg="light gray", fg="black")
 text.pack(side=TOP)
 text.place(x=250, y=190, height=35, width=100)
 text.tag_add("here", "1.0", "1.4")
-text.tag_config("here", background = "black", foreground = "blue")
-
+text.tag_config("here", background="black", foreground="blue")
 
 # Sum button
 sumButton = Button(root, text="Sum", command=sum_calc)
 sumButton.place(x=50, y=50)
 
-
 # Subtraction button
 subtractionButton = Button(root, text="Subtraction", command=sub_calc)
 subtractionButton.place(x=50, y=100)
-
 
 # Multiplication button
 multiplicationButton = Button(root, text="Multiplication", command=mult_calc)
 multiplicationButton.place(x=50, y=150)
 
-
 # Multiplication button
 divisionButton = Button(root, text="Division", command=div_calc)
 divisionButton.place(x=50, y=200)
 
-
 # Sair button
-divisionButton = Button(root, text="SAIR", fg = "Red", command=sair)
+divisionButton = Button(root, text="SAIR", fg="Red", command=sair)
 divisionButton.place(x=50, y=250)
 
-
 # Clear button
-divisionButton = Button(root, text="Clear", fg = "Blue", command=clear)
-divisionButton.place(x=370, y=70,)
-
+divisionButton = Button(root, text="Clear", fg="Blue", command=clear)
+divisionButton.place(x=370, y=70, )
 
 root.mainloop()
