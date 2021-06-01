@@ -1,4 +1,7 @@
-# team 1: Ana & Mari
+#Challenge 5 - Team 1: Ana & Mari
+
+from calculator_concat_sum import CalculatorConcatSum
+
 
 def operation():
     result = None
@@ -14,20 +17,22 @@ def operation():
             '*' Multiplication
             '/' Division\n''')
 
+        calculator = CalculatorConcatSum(n1, n2)
+
         if operator == '+':
-            result = n1 + n2
+            result = calculator.sum()
 
         elif operator == '-':
-            result = n1 - n2
+            result = calculator.sub()
 
         elif operator == '*':
-            result = n1 * n2
+            result = calculator.mult()
         
         elif operator == '/' and n2 == 0:
             is_denominator_zero = True
 
         elif operator == '/':
-            result = n1 / n2
+            result = calculator.div()
     
     except:
         not_a_number = True
@@ -43,8 +48,6 @@ def operation():
     
     else:
         operation_string = f'{n1} {operator} {n2} = {result}'
-        print(f'You chose \'{operator}\'')
-        print(operation_string)
         history.append(operation_string)
 
 is_calculator_on = True
