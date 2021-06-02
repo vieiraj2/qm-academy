@@ -52,7 +52,7 @@ def main():
             continua = False
             continue
         elif operacao == '5':
-            if len(Historic) == 0:
+            if len(historic) == 0:
                 print('Historic of Operations is empty!')
                 print('\n')
                 continue
@@ -76,11 +76,15 @@ def main():
                     print('Invalid input(s)!')
                     print('\n')
                     continue
-                if option_oper != 0:
+                if option_oper > 0 and option_oper <= len(historic):
                     print(historic[option_oper - 1])
                     print('\n')
                 else:
-                    print('Invalid input(s)!')
+                    if option_oper == 0 or option_oper > len(historic):
+                        print('There are ', len(historic), ' items in Historic. Please enter a valid value.')
+                    else:
+                        print('Invalid input(s)!')
+                    print('\n')
             else:
                 print('\n')
                 continue
@@ -88,8 +92,8 @@ def main():
         elif operacao == '1':
             print('* Addition *')
             try:
-                oper1 = float(input('Input the first operator, and after press <ENTER>: '))
-                oper2 = float(input('Input the second operator, and after press <ENTER>: '))
+                oper1 = int(input('Input the first operator, and after press <ENTER>: '))
+                oper2 = int(input('Input the second operator, and after press <ENTER>: '))
             except Exception:
                 print('Invalid input(s)!')
                 print('\n')
