@@ -3,7 +3,13 @@ from calculator_concat_sum import CalculatorConcatSum
 
 for g in itertools.count(start=0, step=1):
 
-    #initial banner
+    # variables
+    result_list = ''
+    op = ''
+    a = ''
+    b = ''
+
+    # initial banner
     def initial_banner():
         print("\033[2m" + "\033[96m" + '\n' + "-" * 62 + '\n' + '\n' + '#' * 62 + '\n' + '#' * 25 +
               ' CALCULATOR ' + '#' * 25 + '\n' + '#' * 62
@@ -21,7 +27,7 @@ for g in itertools.count(start=0, step=1):
         print("\033[2m" + "\033[39m" + 'This is the execution number: 1')
         result_list = []
     else:
-        print("\033[2m" + "\033[39m" + 'This is the execution number: {}'.format(g+1))
+        print("\033[2m" + "\033[39m" + 'This is the execution number: {}'.format(g + 1))
 
     # calc history
     while True:
@@ -45,12 +51,11 @@ for g in itertools.count(start=0, step=1):
                             try:
                                 line2()
                                 hist3 = int(input("\033[2m" + "\033[34m" + 'Input calc number # : '))
-                                print(result_list[hist3-1])
-                                break
+                                print(result_list[hist3 - 1])
                                 line2()
+                                break
                             except (ValueError, IndexError):
                                 line2()
-                                hist2 == '2'
                                 print("\033[1m" + "\033[31m" + 'ERROR! This input is not on the calc list or '
                                                                'is not valid'.format(hist3))
                         break
@@ -109,19 +114,19 @@ for g in itertools.count(start=0, step=1):
 
     if op == "+":
         result = calculator.addition()
-        result_list.append('Calc {}: '.format(g+1) + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
-        #print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
+        result_list.append('Calc {}: '.format(g + 1) + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
+        # print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
     elif op == "-":
         result = calculator.sub()
-        result_list.append('Calc ' + str(g+1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
+        result_list.append('Calc ' + str(g + 1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
         print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
     elif op == "*":
         result = calculator.multiply()
-        result_list.append('Calc ' + str(g+1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
+        result_list.append('Calc ' + str(g + 1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
         print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
     elif op == "/":
         result = calculator.divide()
-        result_list.append('Calc ' + str(g+1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
+        result_list.append('Calc ' + str(g + 1) + ': ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
         print("\033[1m" + "\033[32m" + 'Result: ' + str(a) + " " + str(op) + " " + str(b) + " = " + str(result))
 
     # keep calc or not
