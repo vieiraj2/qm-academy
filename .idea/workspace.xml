@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7f0545e-84df-47f1-b875-a56d602f7b5f" name="Default Changelist" comment="" />
+    <list default="true" id="d7f0545e-84df-47f1-b875-a56d602f7b5f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pytest-with-hamcrest/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pytest-with-hamcrest/hamcrest_pytest.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +99,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.calc (1)" />
+      <item itemvalue="Python.type_value" />
+      <item itemvalue="Python.calc" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.calc" />
