@@ -1,0 +1,36 @@
+repos:
+-    repo: https://github.com/asottile/pyupgrade
+     rev: v2.12.0
+     hooks:
+     -   id: pyupgrade
+         args: [--py39-plus]
+-    repo: https://github.com/pre-commit/pre-commit-hooks
+     rev: v3.2.0
+     hooks:
+     -   id: check-byte-order-marker  # Forbid UTF-8 byte-order markers
+    # Check for files with names that would conflict on a case-insensitive
+    # filesystem like MacOS HFS+ or Windows FAT.
+     -   id: check-case-conflict
+     -   id: check-json
+     -   id: check-yaml
+     -   id: detect-private-key
+     -   id: double-quote-string-fixer
+     -   id: end-of-file-fixer
+     -   id: mixed-line-ending
+     -   id: trailing-whitespace
+     -   id: check-added-large-files
+         args: ['--maxkb=10000']
+-    repo: https://gitlab.com/pycqa/flake8
+     rev: 3.7.9
+     hooks:
+     - id: flake8
+       name: Flake8
+-   repo: https://github.com/PyCQA/pylint
+    rev: pylint-2.7.4
+    hooks:
+      - id: pylint
+        name: Pylint
+-   repo: https://github.com/ducminh-phan/reformat-gherkin
+    rev: v2.0.2
+    hooks:
+      - id: reformat-gherkin
