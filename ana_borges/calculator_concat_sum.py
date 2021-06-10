@@ -1,7 +1,6 @@
-# Challenge 5 - Ana & Mari
+#Challenge 5 - Ana & Mari
 
 from calculator import Calculator
-
 
 class CalculatorConcatSum(Calculator):
     def sum(self):
