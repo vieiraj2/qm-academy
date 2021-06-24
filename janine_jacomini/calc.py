@@ -8,15 +8,18 @@ Fim = True
 result = None
 ResultCalc = CalculatorConcatSum(1,2)
 
-def refazerOper(): #função para refazer operação
+def refazer_oper(): #função para refazer operação
     global Fim
+    Fim = True
     while True:
         op2 = input('\nDeseja fazer outra operação? Digite 1 para continuar ou  0 para sair: ')
-        if op2 == '0':
+        if op2 == '1':
+            break
+        elif op2 == '0':
             print('\n\033[7;34m' + '***** SAINDO DA APLICAÇÃO *****' + '\033[0;0m')
             Fim = False
             break
-        elif op2 != '1' or '0':
+        else:
             print('\n\033[7;31m' + 'ERRO! Por favor, insira uma opção válida: "1" ou "0"\033[0;0m')
 
 while Fim:
@@ -73,14 +76,14 @@ while Fim:
                 print('\n\033[7;33m'+'Opção inválida!!! Voltando ao menu inicial...'+'\033[0;0m')
                 continue
 
-            refazerOper()
+            refazer_oper()
 
         if operacao != '5':
             print('\n\033[1;32m'+'Resultado: '+'\033[0;0m' + str(ResultCalc.n1) + ' ' + str(temp) + ' ' + str(ResultCalc.n2) + ' = ' + str(result))
             log_hist.append('\033[0;0m' + str(ResultCalc.n1) + ' ' + str(temp) + ' ' + str(ResultCalc.n2) + ' = ' + str(result))
 
-            refazerOper()
+            refazer_oper()
 
     except:
         print('\n\033[7;31m'+'------ FALHA NA OPERAÇÃO ------\033[0;0m')
-        refazerOper()
+        refazer_oper()
