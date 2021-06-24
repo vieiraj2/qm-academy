@@ -1,7 +1,13 @@
-#Challenge 5 - Ana & Mari
+# Challenge 5 - Ana & Mari
 
 from calculator_concat_sum import CalculatorConcatSum
+
+
 def operation():
+
+    n1 = None
+    operator = None
+    n2 = None
     result = None
     is_denominator_zero = False
     not_a_number = False
@@ -19,7 +25,7 @@ def operation():
         elif operator == '-':
             result = calculator.sub()
         elif operator == '*':
-            result = calculator.mult()
+            result = calculator.multi()
         elif operator == '/' and n2 == 0:
             is_denominator_zero = True
         elif operator == '/':
@@ -27,19 +33,21 @@ def operation():
     except:
         not_a_number = True
     if is_denominator_zero:
-        print ('Can\'t divide by zero! Try again')
+        print('Can\'t divide by zero! Try again')
     elif not_a_number:
-        print ('It\'s not a number!')
-    elif result == None:
-        print ('Invalid option!')
+        print('It\'s not a number!')
+    elif result is None:
+        print('Invalid option!')
     else:
-        operation_string = f'{n1} {operator} {n2} = {result}'
+        operation_string = f'{n1} {operator} {n2} == {result}'
         history.append(operation_string)
+
+
 is_calculator_on = True
 history = []
 while is_calculator_on:
     option = input('Show Full History (\'h\'), Show History Entry (\'e\') or Make Operation (\'o\')\n').lower()
-    while option != 'h' and option != 'e'and option != 'o':
+    while option != 'h' and option != 'e' and option != 'o':
         option = input('Show Full History (\'h\'), Show History Entry (\'e\') or Make Operation (\'o\')\n').lower()
     if option == 'o':
         operation()
@@ -48,7 +56,7 @@ while is_calculator_on:
     elif option == 'e':
         try:
             entry = int(input(f'Insert history entry ID from 0 to {len(history) - 1}:'))
-            if entry >= 0 and entry < len(history):
+            if 0 <= entry < len(history):
                 print(f'[{entry}]: {history[entry]}')
             else:
                 print('Out of range!')
