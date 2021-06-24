@@ -1,5 +1,5 @@
+from calculator_concat_sum import *
 import os
-
 
 cal_history = []
 option = None
@@ -8,6 +8,10 @@ option = None
 def clear():
     os.environ["TERM"] = "linux"
     os.system("clear")
+
+
+def history(op_result):
+    cal_history.append(op_result)
 
 
 def is_float(a):
@@ -26,46 +30,24 @@ def is_int(a):
         return False
 
 
-def sum_calc(a, b):
-    print(f"O resultado da soma é {a + b}\n")
-    op_result = [a, "+", b, "=", (a + b)]
-    history(op_result)
-
-
-def subtraction_calc(a, b):
-    print(f"O resultado da subtração é {a - b}\n")
-    op_result = [a, "-", b, "=", (a - b)]
-    history(op_result)
-
-
-def multiplication_calc(a, b):
-    print(f"O resultado da multiplicação é {a * b}\n")
-    op_result = [a, "*", b, "=", (a * b)]
-    history(op_result)
-
-
-def division_calc(a, b):
-    print(f"O resultado da divisão é {a / b}\n")
-    op_result = [a, "/", b, "=", (a / b)]
-    history(op_result)
-
-
-def history(op_result):
-    cal_history.append(op_result)
-
-
-def chooseOperation(choose_option, a, b):
+def choose_operation(choose_option, a, b):
+    calculator = CalculatorConcatSum(a, b)
     if choose_option == 'a' or choose_option == 'soma' or choose_option == '1':
-        sum_calc(a, b)
+        op_result = calculator.sum()
+        history(op_result)
     elif choose_option == 'b' or choose_option == 'subtração' or choose_option == '2':
-        subtraction_calc(a, b)
+        op_result = calculator.sub()
+        history(op_result)
     elif choose_option == 'c' or choose_option == 'multiplicação' or choose_option == '3':
-        multiplication_calc(a, b)
+        op_result = calculator.mult()
+        history(op_result)
     elif choose_option == 'd' or choose_option == 'divisão' or choose_option == '4':
-        division_calc(a, b)
+        op_result = calculator.div()
+        if op_result:
+            history(op_result)
 
 
-def chooseOperationIsValid(choose_option):
+def choose_operation_is_valid(choose_option):
     if choose_option == 'a' or choose_option == 'soma' or choose_option == '1':
         return True
     elif choose_option == 'b' or choose_option == 'subtração' or choose_option == '2':
@@ -80,44 +62,21 @@ def chooseOperationIsValid(choose_option):
         return False
 
 
-def inputValue(msg, choosed_operation, input_number):
+def input_value(msg):
     while True:
         value = input(msg)
-
-        if (choosed_operation == 'd' or choosed_operation == 'divisão' or choosed_operation == '4') \
-                and (input_number == 2):
-            if is_int(value):
-                value = int(value)
-                if value == 0:
-                    print("\033[0;31mNão é possível realizar uma divisão por zero, digite outro valor\033[m")
-                else:
-                    return value
-            elif is_float(value):
-                value = float(value)
-                if value == 0.0:
-                    print("\033[0;31mNão é possível realizar uma divisão por zero, digite outro valor\033[m")
-                else:
-                    return value
-
-            else:
-                print("\033[0;31mO valor digitado não é um valor válido, digite novamente!\033[m")
-
+        if is_int(value):
+            value = int(value)
+            break
+        elif is_float(value):
+            value = float(value)
+            break
         else:
-
-            if is_int(value):
-                value = int(value)
-                return value
-
-            elif is_float(value):
-                value = float(value)
-                return value
-
-            else:
-                print("\033[0;31mO valor digitado não é um valor válido, digite novamente!\033[m")
+            print("\033[0;31mO valor digitado não é um valor válido, digite novamente!\033[m")
+    return value
 
 
-def leiaStr(msg):
-
+def leia_str(msg):
     while True:
         value = input(msg)
         if len(value) == 0:
@@ -134,16 +93,16 @@ while option != '2':
     print("c. Multiplicação")
     print("d. Divisão")
     print("e. Consultar o histórico")
-    operation = leiaStr("Digite a opção desejada: ")
+    operation = leia_str("Digite a opção desejada: ")
 
-    while not chooseOperationIsValid(operation):
-        operation = leiaStr("\033[0;31mVocê digitou uma opção inválida. Digite novamente a opção desejada: \033[m")
+    while not choose_operation_is_valid(operation):
+        operation = leia_str("\033[0;31mVocê digitou uma opção inválida. Digite novamente a opção desejada: \033[m")
 
     if not (operation == 'e' or operation == 'consultar' or operation == 'historico' or operation == '5'):
-        value1 = inputValue("Digite o primeiro valor: ", operation, 1)
-        value2 = inputValue("Digite o segundo valor: ", operation, 2)
+        value1 = input_value("Digite o primeiro valor: ")
+        value2 = input_value("Digite o segundo valor: ")
 
-        chooseOperation(operation, value1, value2)
+        choose_operation(operation, value1, value2)
     elif operation == 'e' or operation == 'consultar' or operation == 'historico' or operation == '5':
         print("\nDeseja verificar o histórico total ou parcial?")
         print("\n1. Histórico total")
@@ -152,7 +111,7 @@ while option != '2':
 
         if operation_history == '1' or operation_history == 'total':
             count = 1
-            if len(cal_history) <= 0:
+            if len(cal_history) <= 0 or type(cal_history) is None:
                 print("\n\033[0;31mVocê ainda não possui histórico de operações \033[m")
             else:
                 for i in cal_history:
@@ -173,7 +132,7 @@ while option != '2':
                 while True:
                     if int(operation_history_parcial) <= 0 or int(operation_history_parcial) > (count - 1):
                         print("\n\033[0;31mEssa posição não existe no nosso histórico. "
-                              "Por favor verifique as opções válidas a seguir. \033[m")
+                              "Por favor verifique as opções válidas a seguir\033[m")
                         count2 = 1
                         for i in cal_history:
                             print(f"Operação #{count2}")
