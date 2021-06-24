@@ -5,26 +5,19 @@ from calculator_concat_sum import CalculatorConcatSum
 print('\033[35m'+'\n***** CALCULADORA *****'+'\033[0;0m')
 log_hist = []
 Fim = True
-
+result = None
 ResultCalc = CalculatorConcatSum(1,2)
 
 def refazerOper(): #função para refazer operação
     global Fim
-    Fim = True
     while True:
         op2 = input('\nDeseja fazer outra operação? Digite 1 para continuar ou  0 para sair: ')
-        if op2 == '1':
-            run = True
-            False
-            break
-        elif op2 == '0':
+        if op2 == '0':
             print('\n\033[7;34m' + '***** SAINDO DA APLICAÇÃO *****' + '\033[0;0m')
             Fim = False
-            False
             break
         elif op2 != '1' or '0':
             print('\n\033[7;31m' + 'ERRO! Por favor, insira uma opção válida: "1" ou "0"\033[0;0m')
-            run = True
 
 while Fim:
     operacao = input('\nBem-vindo! Você pode fazer 5 tipos de operações: \n\n1-Adição \n2-Subtração \n3-Multiplicação \n4-Divisão  \n5-Histórico \n\nEscolha o tipo de operação: ')
@@ -64,7 +57,7 @@ while Fim:
                     print('\033[7;33m\nHistórico vazio\033[0;0m')
             elif operacao_hist == '2':
                 posicao_hist = int(input('\nQual posição deseja? '))
-                if len(log_hist) >= posicao_hist and posicao_hist > 0:
+                if len(log_hist) >= posicao_hist > 0:
                     posicao_escolhida = posicao_hist
                     posicao_hist-=1 #decrementando pois a lista começa na posição zero
                     print('\n\033[1;96m----------------------------------------------\033[0;0m')

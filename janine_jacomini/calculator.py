@@ -28,9 +28,10 @@ class Calculator:
             self.n1 = float(input('Digite o primeiro número: '))
             self.n2 = float(input('Digite o segundo número: '))
             divisao = self.n1 / self.n2
+            return divisao
         except:
             print('FALHA NA OPERAÇÃO!!! Não é possivel realizar divisão por zero!!!') #divisao por zero
-        return divisao
+
 
 
 
