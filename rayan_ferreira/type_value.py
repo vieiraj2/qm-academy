@@ -5,7 +5,7 @@ import ast
 value1 = None
 value2 = None
 
-#This exception treats cases where input is string. It is not accepted by 'ast.literal_eval' built in function
+# This exception treats cases where input is string. It is not accepted by 'ast.literal_eval' built in function
 try:
     value1 = ast.literal_eval(input("Insira a primeira variável: "))
     value2 = ast.literal_eval(input("Insira a segunda variável: "))
@@ -18,9 +18,11 @@ except ValueError:
     else:
         value2 = str(value2)
 
-#This method shows the variable type
-def typeAndValueUsingEval(value1, value2):
-    print(type(value1))
-    print(type(value2))
 
-typeAndValueUsingEval(value1, value2)
+# This method shows the variable type
+def type_and_value_using_eval(value_1, value_2):
+    print(type(value_1))
+    print(type(value_2))
+
+
+type_and_value_using_eval(value1, value2)
