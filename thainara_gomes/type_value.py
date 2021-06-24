@@ -1,15 +1,15 @@
-# noinspection PyUnusedLocal
+# Inicio
 def type_values(num1, num2):
- try:
-    print('A primeira entrada foi ', type(eval(num1)))
- except:
+    try:
+        print('A primeira entrada foi ', type(eval(num1)))
+    except:
         if num1 != '':
             print('A primeira entrada foi STRING')
         else:
             print('A primeira entrada foi NULL')
- try:
+    try:
         print('A segunda entrada foi ', type(eval(num2)))
- except:
+    except:
         if num2 != '':
             print('A segunda entrada foi STRING')
         else:
