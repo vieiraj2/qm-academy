@@ -1,5 +1,4 @@
 class Calculator:
-    # construtor das variáveis da classe
     def __init__(self, a, b):
         self.a = a
         self.b = b
