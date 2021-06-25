@@ -1,3 +1,6 @@
 dourado/
 .idea/
 .vscode/
+../.idea/
+__pycache__/
+raul_cunha/__pycache__/
