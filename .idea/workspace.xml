@@ -101,8 +101,8 @@
     </configuration>
     <list>
       <item itemvalue="Python.calc (1)" />
-      <item itemvalue="Python.type_value" />
       <item itemvalue="Python.calc" />
+      <item itemvalue="Python.type_value" />
     </list>
     <recent_temporary>
       <list>
