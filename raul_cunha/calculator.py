@@ -76,7 +76,7 @@ def main():
                     print('Invalid input(s)!')
                     print('\n')
                     continue
-                if option_oper > 0 and option_oper <= len(historic):
+                if 0 < option_oper <= len(historic):
                     print(historic[option_oper - 1])
                     print('\n')
                 else:
