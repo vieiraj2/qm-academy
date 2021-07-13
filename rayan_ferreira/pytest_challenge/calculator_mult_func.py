@@ -65,12 +65,9 @@ class CalculatorMultFunc(BaseCalc):
     def list_of_string(self, n):
         lista_string = []
         i = 1
-        if not len(n):
-            print("voce nao digitou nenhum valor")
-        else:
-            while i < len(n):
-                lista_string.append(n[i])
-                i += 2
+        while i < len(n):
+            lista_string.append(n[i])
+            i += 2
 
         return lista_string
 
