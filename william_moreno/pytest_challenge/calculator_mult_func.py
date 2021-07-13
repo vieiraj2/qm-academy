@@ -1,4 +1,4 @@
-from william_moreno.pytest_challenge.calculator import Calculator as BaseCalc
+from calculator import Calculator as BaseCalc
 
 concatenated_list_result = []
 
@@ -62,6 +62,15 @@ class CalculatorMultFunc(BaseCalc):
 
         return lista[n - 1]
 
+    def list_of_string(self, n):
+        lista_string = []
+        i = 1
+
+        while i < len(n):
+            lista_string.append(n[i])
+            i += 2
+
+        return lista_string
 
 # def user_menu():
 #     # for i in inclusive_range(1, 10, 1):
