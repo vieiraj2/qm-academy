@@ -5,6 +5,34 @@ from hamcrest import assert_that, equal_to
 
 
 @pytest.mark.parametrize('value1, value2, expected',
+                         [(1, 1, 2), (10, 5, 15), (7, 3, 10),
+                          (-10, 10, 0), (-50, 40, -10), (50, -40, 10)])
+def test_sum_calc(value1, value2, expected):
+    assert_that(CalculatorMultFunc().soma(value1, value2), equal_to(expected))
+
+
+@pytest.mark.parametrize('value1, value2, expected',
+                         [(10, 10, 0), (10, -5, 15), (1100, 1150, -50),
+                          (15, 15, 0), (-10, -10, 0), (-50, 100, -150)])
+def test_sub_calc(value1, value2, expected):
+    assert_that(CalculatorMultFunc().sub(value1, value2), equal_to(expected), 'It is only a simple test')
+
+
+@pytest.mark.parametrize('value1, value2, expected',
+                         [(10, 10, 100), (10, -5, -50), (1100, 1150, 1265000),
+                          (15, 15, 225), (-10, -10, 100), (-50, 100, -5000)])
+def test_mult_calc(value1, value2, expected):
+    assert_that(CalculatorMultFunc().mult(value1, value2), equal_to(expected), 'It is only a simple test')
+
+
+@pytest.mark.parametrize('value1, value2, expected',
+                         [(10, 10, 1.0), (10, -5, -2.0), (1100, 1150, 0.9565217391304348),
+                          (15, 15, 1.0), (-10, -10, 1.0), (-50, 100, -0.5)])
+def test_div_calc(value1, value2, expected):
+    assert_that(CalculatorMultFunc().div(value1, value2), equal_to(expected), 'It is only a simple test')
+
+
+@pytest.mark.parametrize('value1, value2, expected',
                          [(1, 1, 0), (10, 5, 5), (7, 3, 4),
                           (-10, 10, -20), (-50, 40, -90), (50, -40, 90)])
 def test_sum_inverse_calc(value1, value2, expected):
