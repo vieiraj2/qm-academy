@@ -46,3 +46,13 @@ def test_concateneted_calc(value1, value2, expected):
                           (17, 1597), (21, 10946)])
 def test_fibo(value1, expected):
     assert_that(CalculatorMultFunc().fibonacci(value1), equal_to(expected))
+
+
+@pytest.mark.string_list
+@pytest.mark.parametrize('value1, expected',
+                         [('ola sou rayan', ['l', ' ', 'o', ' ', 'a', 'a']),
+                          ('abcde', ['b', 'd']), ('ab', ['b']),
+                          ('abcdefghijklmnopqrstuvwxyz',
+                           ['b', 'd', 'f', 'h', 'j', 'l', 'n', 'p', 'r', 't', 'v', 'x', 'z'])])
+def test_list_of_string(value1, expected):
+    assert_that(CalculatorMultFunc().list_of_string(value1), equal_to(expected))
