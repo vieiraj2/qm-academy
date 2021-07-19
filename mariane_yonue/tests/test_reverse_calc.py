@@ -38,7 +38,7 @@ def test_reverse_mult(n1, n2, expect):
     (4, -4, -16),
     (-6, -3, 18),
     (5, 0, 0),
-    (-1.5, 0.5,-0.75),
+    (-1.5, 0.5, -0.75),
     (2.5, 4.0, 10)])
 def test_reverse_div(n1, n2, expect):
     assert_that(ReverseCalculator().div(n1, n2), equal_to(expect))
