@@ -1,7 +1,8 @@
-#Challenge 5 - Team 4 - Calculator
+# Challenge 5 - Team 4 - Calculator
+
 
 class Calculator:
-    def __init__(self, n1, n2): #init: construtor 'obriga' q use sempre os dois numeros
+    def __init__(self, n1, n2):  # init: construtor 'obriga' q use sempre os dois numeros
         self.n1 = n1
         self.n2 = n2
 
@@ -29,12 +30,6 @@ class Calculator:
             self.n2 = float(input('Digite o segundo número: '))
             divisao = self.n1 / self.n2
             return divisao
-        except:
-            print('FALHA NA OPERAÇÃO!!! Não é possivel realizar divisão por zero!!!') #divisao por zero
 
-
-
-
-
-
-
+        except ZeroDivisionError:
+            print('\n\033[7;31m' + 'FALHA NA OPERAÇÃO!!! Não é possivel realizar divisão por zero!!! \033[0;0m')
