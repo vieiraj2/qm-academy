@@ -92,7 +92,8 @@ while Fim:
             continue
 
         if operacao != '5':
-            print('\n\033[1;32m' + 'Resultado: ' + '\033[0;0m' + str(ResultCalc.n1) + ' ' + str(temp) + ' ' + str(ResultCalc.n2) + ' = ' + str(result))
+            if result:
+                print('\n\033[1;32m' + 'Resultado: ' + '\033[0;0m' + str(ResultCalc.n1) + ' ' + str(temp) + ' ' + str(ResultCalc.n2) + ' = ' + str(result))
             log_hist.append('\033[0;0m' + str(ResultCalc.n1) + ' ' + str(temp) + ' ' + str(ResultCalc.n2) + ' = ' + str(result))
             refazer_oper()
 
