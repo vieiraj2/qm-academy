@@ -30,7 +30,7 @@ def operation():
             is_denominator_zero = True
         elif operator == '/':
             result = calculator.div()
-    except:
+    except ValueError:
         not_a_number = True
     if is_denominator_zero:
         print('Can\'t divide by zero! Try again')
@@ -60,7 +60,7 @@ while is_calculator_on:
                 print(f'[{entry}]: {history[entry]}')
             else:
                 print('Out of range!')
-        except:
+        except ValueError:
             print('It\'s not a number!')
     else:
         for i in range(0, len(history)):
