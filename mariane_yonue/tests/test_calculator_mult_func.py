@@ -50,3 +50,43 @@ def test_odd_positions_exception(strings):
 
     assert_that(calling(get_odd_method).with_args(strings),
                 raises(Exception, exception_message))
+
+@pytest.mark.parametrize('n1, n2, expect', [
+    (1, 2, 3),
+    (2, -1, 1),
+    (-4, 2, -2),
+    (1.5, -0.5, 1.0),
+    (-0.5, -6.0, -6.5)])
+def test_sum(n1, n2, expect):
+    assert_that(CalculatorMultFunc().sum(n1, n2), equal_to(expect))
+
+
+@pytest.mark.parametrize("n1,n2,expect", [
+    (2, 1, 1),
+    (1, 2, -1),
+    (-4, 2, -6),
+    (1.5, -0.5, 2.0),
+    (-0.5, -6.0, 5.5)])
+def test_sub(n1, n2, expect):
+    assert_that(CalculatorMultFunc().sub(n1, n2), equal_to(expect))
+
+
+@pytest.mark.parametrize('n1, n2, expect', [
+    (1, 2, 2),
+    (4, -4, -16),
+    (-6, -3, 18),
+    (5, 0, 0),
+    (-1.5, 0.5, -0.75),
+    (2.5, 4.0, 10)])
+def test_mult(n1, n2, expect):
+    assert_that(CalculatorMultFunc().mult(n1, n2), equal_to(expect))
+
+
+@pytest.mark.parametrize('n1, n2, expect', [
+    (1, 2, 0.5),
+    (4, -4, -1),
+    (-6, -3, 2),
+    (5, 1, 5),
+    (-1.5, 0.5, -3)])
+def test_div(n1, n2, expect):
+    assert_that(CalculatorMultFunc().div(n1, n2), equal_to(expect))
