@@ -37,3 +37,48 @@ def test_fibonacci(a, expect):
 def test_odd(a, expect):
     odd_result = CalculatorMultiFunc(a, 0)
     assert odd_result.print_odd_list(a) == expect
+
+
+# this method tests the method 'add' from multi_func_calculator -> CalculatorMultiFunc -> calculator -> Calculator
+@pytest.mark.parametrize('a, b, expect', [
+    (10, 10, 20),
+    (-10, -15, -25),
+    (10.5, 10.6, 21.1),
+    (-10, 9, -1),
+    (50, -10, 40), ])
+def test_add(a, b, expect):
+    op_object = CalculatorMultiFunc(a, b)
+    assert_that(op_object.addition(), equal_to(expect))
+
+
+# this method tests the method 'sub' from multi_func_calculator -> CalculatorMultiFunc -> calculator -> Calculator
+@pytest.mark.parametrize('a, b, expect', [
+    (10, 10, 0),
+    (-10, -15, 5),
+    (30, 9, 21),
+    (50, -10, 60), ])
+def test_sub(a, b, expect):
+    op_object = CalculatorMultiFunc(a, b)
+    assert_that(op_object.sub(), equal_to(expect))
+
+
+# this method tests the method 'multiply' from multi_func_calculator -> CalculatorMultiFunc -> calculator -> Calculator
+@pytest.mark.parametrize('a, b, expect', [
+    (10, 10, 100),
+    (-10, -15, 150),
+    (30, 9, 270),
+    (50, -10, -500), ])
+def test_multiply(a, b, expect):
+    op_object = CalculatorMultiFunc(a, b)
+    assert_that(op_object.multiply(), equal_to(expect))
+
+
+# this method tests the method 'divide' from multi_func_calculator -> CalculatorMultiFunc -> calculator -> Calculator
+@pytest.mark.parametrize('a, b, expect', [
+    (10, 10, 1),
+    (-15, -10, 1.5),
+    (30, 10, 3),
+    (50, -10, -5), ])
+def test_sub(a, b, expect):
+    op_object = CalculatorMultiFunc(a, b)
+    assert_that(op_object.divide(), equal_to(expect))

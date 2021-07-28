@@ -4,13 +4,13 @@ from calculator import Calculator
 class ReverseCalculator(Calculator):
 
     def addition(self):
-        return self.a - self.b
+        return Calculator.sub(self)
 
     def sub(self):
-        return self.a + self.b
+        return Calculator.addition(self)
 
     def multiply(self):
-        return self.a / self.b
+        return Calculator.divide(self)
 
     def divide(self):
-        return self.a * self.b
+        return Calculator.multiply(self)
