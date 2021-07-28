@@ -49,3 +49,44 @@ def test_odd_exception(strings):
     get_odd_method = CalculatorMultFunc().print_odd_strings
     assert_that(calling(get_odd_method).with_args(strings),
                 raises(Exception, exception_message))
+
+
+@pytest.mark.parametrize('n1,n2,expect', [
+    (1, 2, -1),
+    (1.5, -0.5, 2.0),
+    (-4, 2, -6),
+    (2, 1, 1),
+    (-0.5, -6.0, 5.5)])
+def test_sub(n1, n2, expect):
+    assert_that(CalculatorMultFunc().sub(n1, n2), equal_to(expect))
+
+
+@pytest.mark.parametrize('n1,n2,expect', [
+    (1, 2, 3),
+    (1.5, -0.5, 1.0),
+    (-4, 2, -2),
+    (2, -1, 1),
+    (-0.5, -6.0, -6.5)])
+def test_sum(n1, n2, expect):
+    assert_that(CalculatorMultFunc().sum(n1, n2), equal_to(expect))
+
+
+@pytest.mark.parametrize('n1,n2,expect', [
+    (1, 2, 0.5),
+    (1.5, -0.5, -3),
+    (-4, 2, -2),
+    (2, -1, -2),
+    (-6.0, 0.5, -12)])
+def test_div(n1, n2, expect):
+    assert_that(CalculatorMultFunc().div(n1, n2), equal_to(expect))
+
+
+@pytest.mark.parametrize('n1,n2,expect', [
+    (1, 2, 2),
+    (1.5, -0.5, -0.75),
+    (-4, 2, -8),
+    (2, -1, -2),
+    (-6.0, 0.5, -3),
+    (0, 5, 0)])
+def test_multi(n1, n2, expect):
+    assert_that(CalculatorMultFunc().multi(n1, n2), equal_to(expect))
