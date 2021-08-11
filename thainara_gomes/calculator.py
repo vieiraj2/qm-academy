@@ -19,5 +19,6 @@ class Calculator:
         try:
             div = num1 / num2
             return div
-        except:
+
+        except ZeroDivisionError:
             print('Erro! Sistema não realiza divisão por zero')
