@@ -79,7 +79,7 @@ def test_sub(n1, n2, expect):
     (-1.5, 0.5, -0.75),
     (2.5, 4.0, 10)])
 def test_mult(n1, n2, expect):
-    assert_that(CalculatorMultFunc().mult(n1, n2), equal_to(expect))
+    assert_that(CalculatorMultFunc().multi(n1, n2), equal_to(expect))
 
 
 @pytest.mark.parametrize('n1, n2, expect', [
