@@ -1,4 +1,4 @@
-from william_moreno.pytest_challenge.calculator import Calculator as BaseCalc
+from calculator import Calculator as BaseCalc
 
 
 class ReverseCalc(BaseCalc):
