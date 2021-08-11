@@ -1,4 +1,4 @@
-from reverseCalculator import ReverseCalculator
+from janine_jacomini.reverseCalculator import ReverseCalculator
 import pytest  # importa pytest
 from hamcrest import assert_that, equal_to
 

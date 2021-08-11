@@ -1,4 +1,4 @@
-from calculatorMultFunc import calculatorMultFunc
+from janine_jacomini.calculatorMultFunc import calculatorMultFunc
 import pytest  # importa pytest
 from hamcrest import assert_that, equal_to
 

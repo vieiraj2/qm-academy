@@ -1,4 +1,4 @@
-from calculator import Calculator
+from janine_jacomini.calculator import Calculator
 
 
 class calculatorMultFunc(Calculator):
