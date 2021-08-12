@@ -6,7 +6,7 @@ print('\033[35m' + '\n***** CALCULADORA *****' + '\033[0;0m')
 log_hist = []
 Fim = True
 result = None
-ResultCalc = CalculatorConcatSum(1, 2)
+resultCalc = CalculatorConcatSum(1, 2)
 
 
 def refazer_oper():  # função para refazer operação
@@ -30,16 +30,32 @@ while Fim:
     try:
         if operacao == '1':
             temp = '+'
-            result = ResultCalc.sum()
+            n1 = float(input('Digite o primeiro número: '))
+            n2 = float(input('Digite o segundo número: '))
+            resultCalc.n1 = n1
+            resultCalc.n2 = n2
+            result = resultCalc.sum()
         elif operacao == '2':
             temp = '-'
-            result = ResultCalc.sub()
+            n1 = float(input('Digite o primeiro número: '))
+            n2 = float(input('Digite o segundo número: '))
+            resultCalc.n1 = n1
+            resultCalc.n2 = n2
+            result = resultCalc.sub()
         elif operacao == '3':
             temp = '*'
-            result = ResultCalc.mult()
+            n1 = float(input('Digite o primeiro número: '))
+            n2 = float(input('Digite o segundo número: '))
+            resultCalc.n1 = n1
+            resultCalc.n2 = n2
+            result = resultCalc.mult()
         elif operacao == '4':
             temp = '/'
-            result = ResultCalc.div()
+            n1 = float(input('Digite o primeiro número: '))
+            n2 = float(input('Digite o segundo número: '))
+            resultCalc.n1 = n1
+            resultCalc.n2 = n2
+            result = resultCalc.div()
         elif operacao == '5':
             operacao_hist = input('\n1-Ultimas execuções \n2-Histórico por posição \n\nEscolha o tipo de histórico: ')
             if operacao_hist == '1':
@@ -79,8 +95,8 @@ while Fim:
             continue
         if operacao != '5':
             if result:
-                print('\n\033[1;32m' + 'Resultado: ' + '\033[0;0m' + str(ResultCalc.n1) + ' ' + str(temp) + ' ' + str(ResultCalc.n2) + ' = ' + str(result))
-            log_hist.append('\033[0;0m' + str(ResultCalc.n1) + ' ' + str(temp) + ' ' + str(ResultCalc.n2) + ' = ' + str(result))
+                print('\n\033[1;32m' + 'Resultado: ' + '\033[0;0m' + str(resultCalc.n1) + ' ' + str(temp) + ' ' + str(resultCalc.n2) + ' = ' + str(result))
+            log_hist.append('\033[0;0m' + str(resultCalc.n1) + ' ' + str(temp) + ' ' + str(resultCalc.n2) + ' = ' + str(result))
             refazer_oper()
 
     except ValueError:

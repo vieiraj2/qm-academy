@@ -3,17 +3,13 @@ from janine_jacomini.calculator import Calculator
 
 class ReverseCalculator(Calculator):
     def sum(self):
-        soma = self.n1 - self.n2
-        return soma
+        return super().sub()
 
     def sub(self):
-        subtracao = self.n1 + self.n2
-        return subtracao
+        return super().sum()
 
     def mult(self):
-        multiplicacao = self.n1 / self.n2
-        return multiplicacao
+        return super().div()
 
     def div(self):
-        divisao = self.n1 * self.n2
-        return divisao
+        return super().mult()
