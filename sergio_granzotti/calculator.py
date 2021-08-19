@@ -23,4 +23,4 @@ class Calculator:
             divisao = self.n1 / self.n2
             return divisao
         except ZeroDivisionError:
-            print('FALHA NA OPERAÇÃO!!! Não é possivel realizar divisão por zero!!!')  # divisao por zero
+            print('\n \033[7;31m' + 'FALHA NA OPERAÇÃO!!! Não é possivel realizar divisão por zero!!!\033[0;0m')  # divisao por zero

@@ -94,7 +94,8 @@ while Fim:
             refazer_oper()
 
         if operacao != '5':
-            print('\n\033[1;32m' + 'Resultado: ' + '\033[0;0m' + str(resultCalc.n1) + ' ' + str(temp) + ' ' + str(resultCalc.n2) + ' = ' + str(result))
+            if result:
+                print('\n\033[1;32m' + 'Resultado: ' + '\033[0;0m' + str(resultCalc.n1) + ' ' + str(temp) + ' ' + str(resultCalc.n2) + ' = ' + str(result))
             log_hist.append('\033[0;0m' + str(resultCalc.n1) + ' ' + str(temp) + ' ' + str(resultCalc.n2) + ' = ' + str(result))
             refazer_oper()
     except ValueError:
