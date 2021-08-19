@@ -1,4 +1,4 @@
-from calculator import Calculator
+from sergio_granzotti.calculator import Calculator
 
 
 class calculatorMultFunc(Calculator):
