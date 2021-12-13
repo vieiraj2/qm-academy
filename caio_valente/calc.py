@@ -4,12 +4,14 @@ def calculator ():
     value1 = None
     value2 = None
     option = None
-    menu = "Choose your option: \n +    -\n *    /\n-"
+    notNumber = False
+    menu = "Choose your option: \n +    -\n *    /\n: "
 
-    value1 = float(input("Type the first value: "))
-    option = input(menu)
-    value2 = float(input("Type the second value: "))
     try:
+        value1 = float(input("Type the first value: "))
+        option = input(menu)
+        value2 = float(input("Type the second value: "))
+
         if (option == "+"):
             result = (value1 + value2)
         elif (option == "-"):
@@ -19,15 +21,17 @@ def calculator ():
         elif (option == "/"):
             result = value1 / value2
 
-        print("Your result is: {}".format(result))
+        print(f"Your result is: {result}")
 
     except:
 
-       if (value2 == 0):
+        print("Something went wrong, try again!")
+
+
+        if value2 == 0:
            print("Can't divide by 0")
 
 sair = "0"
 while sair == "0":
     calculator()
     sair = input("Do you wish to quit? Yes = Any value | No = 0\n")
-
