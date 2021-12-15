@@ -4,14 +4,13 @@ def calculator ():
     value2 = None
     option = None
     notNumber = False
-
-
     menu = "Choose your option: \n(+) - Sum\n(-) - Subtraction\n(*) - Multiplication\n(/) - Division\n: "
 
-    value1 = float(input("Type the first value: "))
-    option = input(menu)
-    value2 = float(input("Type the second value: "))
+
     try:
+        value1 = float(input("Type the first value: "))
+        option = input(menu)
+        value2 = float(input("Type the second value: "))
         if option == "+":
             result = (value1 + value2)
         elif option == "-":
@@ -47,18 +46,18 @@ while seeMenu == "y":
         calculator()
     elif (optionMenu == "1" or optionMenu == "2") and len(history) == 0:
         print("No history to show!")
-    elif optionMenu == "2":
+    elif optionMenu == '2':
         try:
-            entry = int(input(f"Insert an ID from 0 to {len(history) - 1}: "))
+            entry = int(input(f'Insert history entry ID from 0 to {len(history) - 1}:'))
             if 0 <= entry < len(history):
-                print(f"[{entry}]: {history(entry)}")
+                print(f'[{entry}]: {history[entry]}')
             else:
-                print("Out of range!")
+                print('Out of range!')
         except:
-            print("That's not a number!")
+            print('It\'s not a number!')
     else:
         for i in range(0, len(history)):
             print(f"[{i}]: {history[i]}")
-    seeMenu = input("Do you wish to see the menu again? (y|n)\n")
+    seeMenu = input("Do you wish to see the menu again? (y|n)\n:")
     if seeMenu != "y" and seeMenu != "n":
         seeMenu = input("Do you wish to see the menu again? (y|n)\n")
