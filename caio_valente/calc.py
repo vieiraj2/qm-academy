@@ -1,4 +1,6 @@
-def calculator ():
+from calc_concat_sum import CalcConcatSum
+
+def operations ():
 
     value1 = None
     value2 = None
@@ -11,16 +13,18 @@ def calculator ():
         value1 = float(input("Type the first value: "))
         option = input(menu)
         value2 = float(input("Type the second value: "))
-        if option == "+":
-            result = (value1 + value2)
-        elif option == "-":
-            result = value1 - value2
-        elif option == "*":
-            result = (value1 * value2)
-        elif option == "/":
-            result = value1 / value2
 
-        print(f"Your result is: {result}")
+        calculator = CalcConcatSum(value1, value2)
+        if option == '+':
+            result = calculator.sum()
+        elif option == '-':
+            result = calculator.sub()
+        elif option == '*':
+            result = calculator.multi()
+        elif option == '/' and value2 == 0:
+            is_denominator_zero = True
+        elif option == '/':
+            result = calculator.div()
 
     except:
         notNumber = True
@@ -43,7 +47,7 @@ while seeMenu == "y":
     while optionMenu != "1" and optionMenu != "2" and optionMenu != "3":
         optionMenu = input("(1) If you wish to see the history of operations\n(2) If you wish to remake an operation\n(3) If you want to make a new operation\n:")
     if optionMenu == "3":
-        calculator()
+        operations()
     elif (optionMenu == "1" or optionMenu == "2") and len(history) == 0:
         print("No history to show!")
     elif optionMenu == '2':
