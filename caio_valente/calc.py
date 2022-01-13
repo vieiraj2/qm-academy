@@ -8,7 +8,6 @@ def operations ():
     notNumber = False
     menu = "Choose your option: \n(+) - Sum\n(-) - Subtraction\n(*) - Multiplication\n(/) - Division\n: "
 
-
     try:
         value1 = float(input("Type the first value: "))
         option = input(menu)
